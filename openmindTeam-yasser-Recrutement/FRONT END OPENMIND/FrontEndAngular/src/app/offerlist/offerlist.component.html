@@ -1,0 +1,254 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css"
+    integrity="sha512-pVCM5+SN2+qwj36KonHToF2p1oIvoU3bsqxphdOIWMYmgr4ZqD3t5DjKvvetKhXGc/ZG5REYTT6ltKfExEei/Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css"
+    integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
+<div class="wrapper mx-auto px-4 h-screen flex bg-white ">
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li  *ngIf="this.roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/recources" ><i class="fa fa-home"></i> Home</a></li>
+            <li  *ngIf="this.roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/offers" routerLinkActive="active-link"><i class="fa fa-briefcase" aria-hidden="true"></i> Offers</a></li>
+            <li  *ngIf="this.roles.includes('RECRUITOR')" style="font-size: 10px;"><a routerLink="/recruitor/offers" routerLinkActive="active-link"><i class="fa fa-briefcase" aria-hidden="true"></i> Offers</a></li>
+            <li  *ngIf="this.roles.includes('VALIDATOR')" style="font-size: 10px;"><a routerLink="/validator/offers" routerLinkActive="active-link"><i class="fa fa-briefcase" aria-hidden="true"></i> Offers</a></li>
+            <li  *ngIf="this.roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/saveoffer"><i class="fa fa-plus-circle" aria-hidden="true"></i> Save Offer</a></li>
+            <li  *ngIf="this.roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/profiles"><i class="fa fa-address-card" aria-hidden="true"></i> Profiles</a></li>
+            <li  *ngIf="this.roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/saveprofile"><i class="fa fa-user-plus" aria-hidden="true"></i> save profile</a></li>
+            <li  *ngIf="this.roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/companies"><i class="fa fa-users" aria-hidden="true"></i> Companies</a></li>
+            <li  *ngIf="this.roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/savecompany"><i class="fa fa-plus-circle" aria-hidden="true"></i> Save Company</a></li>
+            <li  *ngIf="this.roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/candidates" ><i class="fa fa-user"></i> Candidates</a></li>
+            <li  *ngIf="this.roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/savecandidate"><i class="fa fa-user-plus" aria-hidden="true"></i> save candidate</a></li>
+            <li  *ngIf="this.roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/recruitors"><i class="fa fa-universal-access" aria-hidden="true"></i>  Recruitors</a></li>
+            <li  *ngIf="this.roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/saverecruitor"><i class="fa fa-user-plus" aria-hidden="true"></i> save Recruitor</a></li>
+            <li  *ngIf="this.roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/validators"><i class="fa fa-user" aria-hidden="true"></i> Validators</a></li>
+            <li  *ngIf="this.roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/savevalidator"><i class="fa fa-user-plus" aria-hidden="true"></i> save Validator</a></li>
+            <li  style="font-size: 10px;"><button (click)="LogOut()" ><i class="fa fa-user-plus" aria-hidden="true"></i> LogOut</button></li>
+
+        </ul>
+    </div>
+    <div class="groupcontaoner" style="margin-left: 8%;">
+        <div class="listoffer">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <h5 class="card-title">Offer List</h5>
+                        </div>
+                        <div *ngIf="this.roles.includes('HR')" [formGroup]="searchFormGroup" >
+                        <input class="inputsearch" placeholder="Search For Offer"  (change)="serchOfferByName()" type="text" formControlName="searchforoffer" >
+                        </div>                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
+                            <div *ngIf="this.roles.includes('HR')">
+                                <a style="border-radius: 20px;" routerLink="/hr/saveoffer"  
+                                    class="btn btn-primary"><i class="bx bx-plus me-1"></i> New Offer</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class>
+                            <div class="table-responsive">
+                                <ng-container *ngIf="errorMessage ; else loading">
+                                    <div class="text-danger">server down</div>
+                                </ng-container>
+                                <ng-template #loading>
+                                    <p *ngIf="!offers" >Loading....</p>
+                                </ng-template>
+                                <table class="table  project-list-table  align-middle table-borderless ">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Title</th>
+                                            <th scope="col">Availabelity</th>
+                                            <th scope="col">Company</th>
+                                            <th scope="col">Localisation</th>
+                                            <th scope="col" style="width: 200px;">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <ng-container *ngIf="offers">
+                                        <tbody>
+                                            <tr *ngFor="let offer of offers.offerDtos" >
+                                                <td>{{offer.offer_title}}</td>
+                                                <td  style="font-size: 15px;" ><span class="badge badge-soft-success mb-0">
+                                                    <i [ngClass]="offer.offer_availability?'bx bxs-check-circle ':'bx bx-x redness'"> </i>
+                                                </span>
+                                                </td>
+                                                <td  style="font-size: 12px;" >
+                                                    <span  class="badge badge-soft-success mb-0"> {{offer.companyName}}</span>
+                                                </td>
+                                                <td > {{offer.localisation.substring(0,30)}}... </td>
+                                                <td>
+                                                    <ul class="list-inline mb-0">
+                                                        <ng-container *ngIf="roles.includes('HR')">
+                                                            <li class="list-inline-item">
+                                                                <a style="font-size: 12px; cursor: pointer;" (click)="UpdateOfferDetails(offer.id)"   title="Edit" class="px-2 text-primary">
+                                                                    <i
+                                                                    class="bx bx-pencil font-size-18">
+                                                                    </i>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                ----------
+                                                            </li>
+                                                        </ng-container>
+                                                        <li class="list-inline-item">
+                                                            <a style="font-size: 12px;cursor: pointer;;" (click)="ViewOfferDetails(offer.id)" title="View Details" class="px-2 text-danger">
+                                                                <i 
+                                                                class="bx bx-show-alt font-size-18">
+                                                                </i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </ng-container>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pages row g-0 align-items-center pb-4">
+                    <div class="col-sm-6">
+                        <div class="float-sm-end">
+                            <ul class="pagination mb-sm-0">
+                                <li class="page-item">
+                                    <a (click)="GotoPrevousPage()" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
+                                </li>
+                                <ng-container *ngIf="offers" >
+                                <li><a class="btnb page-link" >{{currentPage}}</a></li>
+                                </ng-container>
+                                <li class="page-item">
+                                    <a (click)="GotoNextPage()" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div *ngIf="offerDetails" style="margin-top: 5%;" class="offerdetails">
+            <div class="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <!-- meta -->
+                            <div class="profile-user-box card-box bg-custom">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="media-body text-white">
+                                            <h4 class="mt-1 mb-1 font-18"> {{offerDetails.offer_title}} </h4>
+                                            <p *ngIf="company"  class="font-13 text-light" >{{company.name}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/ meta -->
+                        </div>
+                    </div>
+                    <!-- end row -->
+                    <div class="row offerItem" >
+                        <div class="col-sm-12">
+                            <!-- Personal-Information -->
+                            <div class="card-box" >
+                                <h4 class="header-title mt-0">Offer Description</h4>
+                                <div class="panel-body">
+                                    <p class="text-muted font-13">{{offerDetails.offer_description}} </p>
+                                    <hr>
+                                    <div class="text-left">
+                                        <p class="text-muted font-13"><strong>Offer availabality : </strong>   <i
+                                            [ngClass]="offerDetails.offer_availability?'bx bxs-check-circle':'bx bxs-shield-x'"  class="m-l-15" style="color: blue; font-size: 15px;" ></i></p>
+                                        <p class="text-muted font-13"><strong>Keys :</strong><span
+                                                class="m-l-15"> {{offerDetails.key_points}} </span></p>
+                                                <p class="text-muted font-13"><strong> Localisation :</strong><span
+                                                    class="m-l-15"> {{offerDetails.localisation}} </span></p>
+                                                <p *ngIf="offerDetails.remuneration && offerDetails.remuneration!==0 " class="text-muted font-13"><strong>Remuneration :</strong><span
+                                                    class="m-l-15"> {{offerDetails.currency}} {{offerDetails.remuneration}} </span></p>
+
+                                        <p class="text-muted font-13">
+                                            <strong>
+                                                Validators : 
+                                            </strong>
+                                            <span class="m-l-15">
+                                                <ul>
+                                                    <li *ngFor="let valid of offerDetails.validators" >
+                                                        name : <span class="m-l-15">  {{valid.firstName}} {{valid.lastName}} </span>
+                                                        <br>
+                                                        email : <span class="m-l-15" > {{valid.email}} </span> 
+                                                    </li>
+                                                </ul>
+                                            </span>
+                                        </p>
+
+                                        <p class="text-muted font-13">
+                                            <strong>
+                                                Recruitors : 
+                                            </strong>
+                                            <span class="m-l-15">
+                                                <ul>
+                                                    <li *ngFor="let valid of offerDetails.recruitors" >
+                                                        name : <span class="m-l-15">  {{valid.firstName}} {{valid.lastName}} </span>
+                                                        <br>
+                                                        email : <span class="m-l-15" > {{valid.email}} </span> 
+                                                    </li>
+                                                </ul>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card-box">
+                                <h4 style="padding-left: 5px;" class="header-title mt-0 mb-3">  Benifits </h4>
+                                <div class="">
+                                    <div class="">
+                                        <p class="text-muted font-13 mb-0"> {{offerDetails.benefits}} </p>
+                                    </div>
+                                    <hr>
+                                    <div class="">
+                                        <h5 style="padding-left: 5px;" class="text-custom">Desired Profile</h5>
+                                        <p class="text-muted font-13 mb-0"> {{offerDetails.desired_profile}} </p>
+                                    </div>
+                                    <div  *ngIf="this.roles.includes('HR')" class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
+                                            <a style="border-radius: 20px;" [routerLink]="['/hr/profiles/',offerDetails.id]" 
+                                                class="btn btn-primary"><i class="bx bx-plus me-1"></i> Attach Profiles To this Offer </a>
+                                    </div>
+                                    <div  *ngIf="this.roles.includes('HR') || this.roles.includes('RECRUITOR')"  class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
+                                        <a style="border-radius: 20px;" [routerLink]="['/hr/applications/',offerDetails.id]" 
+                                            class="btn btn-primary"><i class="bx bx-plus me-1"></i> Applications </a>
+                                </div>
+                                <div *ngIf="this.roles.includes('VALIDATOR') || this.roles.includes('RECRUITOR') " class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
+                                    <a style="border-radius: 20px;" [routerLink]="['/recruitor/valid/applications/recruitor/',offerDetails.id]" 
+                                        class="btn btn-primary"><i class="bx bx-plus me-1"></i> Validated Applications By recruitor </a>
+                            </div>
+                            <div *ngIf="this.roles.includes('VALIDATOR')" class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
+                                <a style="border-radius: 20px;" [routerLink]="['/validator/valid/applications/validator/',offerDetails.id]" 
+                                    class="btn btn-primary"><i class="bx bx-plus me-1"></i> the final Applications  </a>
+                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end col -->
+                    </div>
+                    <!-- end row -->
+                </div>
+                <!-- container -->
+            </div>
+
+
+
+        </div>
+    </div>
+
+</div>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

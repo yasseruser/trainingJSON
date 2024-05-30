@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "${FRONTEND_URL:http://localhost:4200}"
+            allowedHeaders: "*"
+            allowedMethods: "*"

@@ -1,0 +1,88 @@
+
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'>
+<div class="container-fluid">
+    <a routerLink="/candidate/offers"> go to offers</a>
+    <form [formGroup]="addCandidatsFormGroup" (ngSubmit)="onSubmit()">
+        <div class="container">
+            <!-- Title -->
+            <div class="d-flex justify-content-between align-items-lg-center py-3 flex-column flex-lg-row">
+                <h2 class="h5 mb-3 mb-lg-0" style="color: #fff;"><a href="#" class="text-muted"><i
+                            class="bi bi-arrow-left-square me-2"></i></a> <span *ngIf="!candidateIdLink" >Create New </span> <span *ngIf="candidateIdLink" >Update</span> Candidate </h2>
+                            <p style="color: red;" *ngIf="errormsj" >{{errormsj}}</p>
+            </div>
+
+            <!-- Main content -->
+            <div class="row">
+                <!-- Left side -->
+                <div class="col-lg-8">
+                    <!-- Basic information -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="h6 mb-4">Candiadet information</h3>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">First Name</label>
+                                        <input formControlName="firstName" type="text" class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Last Name</label>
+                                        <input formControlName="lastName" type="text" class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Phone</label>
+                                        <input formControlName="phone" type="text" class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">City</label>
+                                        <input formControlName="city" type="url" class="form-control" required>
+                                    </div>
+                                    <label class="form-label">Country</label>
+                                        <select  required  class="form-select"
+                                            formControlName="country">
+                                            <ng-container *ngIf="countries | async as cs">
+                                                <option *ngFor="let c of cs;" [value]="c.country">
+                                                    {{c.country}}
+                                                </option>
+                                            </ng-container>
+                                        </select>
+                                    <div class="mb-3">
+                                        <label class="form-label">email</label>
+                                        <input formControlName="email" type="email" class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Status</label>
+                                        <select required class="form-select" formControlName="status">
+                                            <option value="active">Active</option>
+                                            <option value="not active"> not Active </option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">BirthDay</label>
+                                        <input formControlName="birthDate" type="date" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Notes -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="h6">Notes <p style="font-size:10px ;">optional</p>
+                            </h3>
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-lg-center py-3 flex-column flex-lg-row">
+            <div class="hstack gap-3" style="margin-left: 70%;">
+                <button type="button" (click)="rest()" class="btn-sm "> <span class="text">Cancel</span></button>
+                <button *ngIf="this.candidateIdLink" [disabled]="!addCandidatsFormGroup.valid" [ngClass]="!addCandidatsFormGroup.valid?'btn':'btn-sm'" style="border: none;" > <span class="text">Update</span></button>
+                <button *ngIf="!this.candidateIdLink" [disabled]="!addCandidatsFormGroup.valid" [ngClass]="!addCandidatsFormGroup.valid?'btn':'btn-sm'" style="border: none;" > <span class="text">Save</span></button>
+            </div>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,44 @@
+    /* Styles pour les boutons */
+    .custom-button {
+      display: inline-block;
+      font-family: "Merriweather Sans", sans-serif;
+      text-transform: uppercase;
+      padding: 10px 45px;
+      background-color: #ffffff;
+      border: 1px solid #ff8a1d;
+      border-radius: 25px;
+      color: #e01515;
+      margin-top: 15px;
+      text-decoration: none; /* pour supprimer la soulignement du lien */
+    }
+
+    /* Style pour les boutons au survol */
+    .custom-button:hover {
+      background-color: transparent;
+      color: #ff8a1d;
+    }
+
+    /* Style pour la réactivité */
+    @media (max-width: 768px) {
+      .lg:flex {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .lg:w-6/12 {
+        width: 100%;
+      }
+
+      .lg:w-5/12 {
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .lg:text-center {
+        text-align: center;
+      }
+
+      .lg\:block {
+        display: none !important;
+      }
+    }

@@ -1,0 +1,223 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css"
+    integrity="sha512-pVCM5+SN2+qwj36KonHToF2p1oIvoU3bsqxphdOIWMYmgr4ZqD3t5DjKvvetKhXGc/ZG5REYTT6ltKfExEei/Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css"
+    integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
+<div class="wrapper mx-auto px-4 h-screen flex bg-white">
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li *ngIf="roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/recources" ><i class="fa fa-home"></i> Home</a></li>
+            <li *ngIf="roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/offers" routerLinkActive="active-link"><i class="fa fa-briefcase" aria-hidden="true"></i> Offers</a></li>
+            <li *ngIf="roles.includes('RECRUITOR')" style="font-size: 10px;"><a routerLink="/hr/offers" routerLinkActive="active-link"><i class="fa fa-briefcase" aria-hidden="true"></i> Offers</a></li>
+            <li *ngIf="roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/saveoffer"><i class="fa fa-plus-circle" aria-hidden="true"></i> Save Offer</a></li>
+            <li *ngIf="roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/profiles"><i class="fa fa-address-card" aria-hidden="true"></i> Profiles</a></li>
+            <li *ngIf="roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/saveprofile"><i class="fa fa-user-plus" aria-hidden="true"></i> save profile</a></li>
+            <li *ngIf="roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/companies"><i class="fa fa-users" aria-hidden="true"></i> Companies</a></li>
+            <li *ngIf="roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/savecompany"><i class="fa fa-plus-circle" aria-hidden="true"></i> Save Company</a></li>
+            <li *ngIf="roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/candidates"><i class="fa fa-user"></i> Candidates</a></li>
+            <li *ngIf="roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/savecandidate"><i class="fa fa-user-plus" aria-hidden="true"></i> save candidate</a></li>
+            <li *ngIf="roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/recruitors"><i class="fa fa-universal-access" aria-hidden="true"></i>  Recruitors</a></li>
+            <li *ngIf="roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/saverecruitor"><i class="fa fa-user-plus" aria-hidden="true"></i> save Recruitor</a></li>
+            <li *ngIf="roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/validators"><i class="fa fa-user" aria-hidden="true"></i> Validators</a></li>
+            <li *ngIf="roles.includes('HR')" style="font-size: 10px;"><a routerLink="/hr/savevalidator"><i class="fa fa-user-plus" aria-hidden="true"></i> save Validator</a></li>
+            <li style="font-size: 10px;"><button (click)="LogOut()"><i class="fa fa-user-plus" aria-hidden="true"></i> LogOut</button></li>
+
+        </ul>
+    </div>
+    <div class="groupcontaoner" style="margin-left: 15%;">
+        <div class="listoffer">
+            <div class="container">
+                <div class="row align-items-center mb-3">
+                    <div class="col-md-4">
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <h5 class="card-title">Applications of Offfer <Strong style="color: rgb(48, 11, 196);"
+                                    *ngIf="offer"> {{offer.offer_title}} </Strong> </h5>
+                        </div>
+                        <div style="display: flex; flex-direction: row;">
+                            <div [formGroup]="searchFormGroup" >
+                                <input style="margin-right: 10px;" class="inputsearch" placeholder="Filter By Tag"  type="text" formControlName="searchtag" >
+                                </div> 
+                                <div [formGroup]="searchFormGroupprofile" >
+                                    <input class="inputsearch" placeholder="Filter By profile Title"  type="text" formControlName="searchprofile" >
+                                    </div> 
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class>
+                            <div class="table-responsive">
+                                <ng-container *ngIf="errorMessage; else loading">
+                                    <div class="text-danger">{{ errorMessage }}</div>
+                                </ng-container>
+                                <ng-template #loading>
+                                    <p *ngIf="!applications && applications!=null ">Loading...</p>
+                                </ng-template>
+                                <table class="table project-list-table align-middle table-borderless">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Phone</th>
+                                            <th scope="col">Country</th>
+                                            <th scope="col">City</th>
+                                            <th scope="col">Tag_Status</th>
+                                            <th scope="col">Profile Title</th>
+                                            <th scope="col">salary expectations</th>
+                                            <th scope="col" style="width: 200px;">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <ng-container *ngIf="applicationDtos">
+                                        <tbody>
+                                            <tr *ngFor="let application of applicationDtos">
+                                                <td>{{ application.firstName }} {{ application.lastName }}</td>
+                                                <td>
+                                                    <span class="badge badge-soft-success mb-0">{{ application.email
+                                                        }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-soft-success mb-0">{{ application.phone
+                                                        }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-soft-success mb-0">{{ application.country
+                                                        }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-soft-success mb-0">{{ application.city
+                                                        }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-soft-success mb-0">{{
+                                                        application.recruitment_status }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-soft-success mb-0"> <a [routerLink]="['/hr/profiles/view/',application.profile_id]"> {{
+                                                        application.profileTitle }} </a></span>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-soft-success mb-0">
+                                                        <Strong>{{application.currency}}</Strong> {{
+                                                        application.salaryExpectations }}</span>
+                                                </td>
+
+                                                <td>
+                                                    <ul class="list-inline mb-0">
+                                                        <li *ngIf="this.roles.includes('HR')" class="list-inline-item">
+                                                            <!-- Button trigger modal -->
+                                                            <button (click)="passIdApp(application.id)"
+                                                                style="font-size: 12px; cursor: pointer;" type="button"
+                                                                class="px-2 text-primary" data-bs-toggle="modal"
+                                                                data-bs-target="#staticBackdrop">
+                                                                <i class="bx bx-pencil font-size-18"></i>
+                                                            </button>
+                                                        </li>
+                                                        <li class="list-inline-item">
+                                                            <button (click)="deleteApplication(application.id)" style="font-size: 12px;cursor: pointer;;"
+                                                                title="Delete" class="px-2 text-danger">
+                                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                                            </button>
+                                                        </li>
+                                                        <li *ngIf="this.roles.includes('RECRUITOR')" class="list-inline-item">
+                                                            <button (click)="validatedApplication(application.id)" style="font-size: 12px;cursor: pointer;color: green;"
+                                                                title="Validate" class="px-2">
+                                                                <i class="fa fa-check" aria-hidden="true"></i>
+                                                            </button>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </ng-container>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pages row g-0 align-items-center pb-4">
+                    <div class="col-sm-6">
+                        <div class="float-sm-end">
+                            <ul class="pagination mb-sm-0">
+                                <li class="page-item">
+                                    <a (click)="previousPage()" class="page-link"><i
+                                            class="mdi mdi-chevron-left"></i></a>
+                                </li>
+                                <ng-container *ngIf="applications">
+                                    <li><a class="btnb page-link">{{ currentPage }}</a></li>
+                                </ng-container>
+                                <li class="page-item">
+                                    <a (click)="nextPage()" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Tag</h1>
+            </div>
+            <div class="modal-body">
+                <p *ngIf="msj" style="color: red;" >{{msj}}</p>
+                <p *ngIf="msjsuccess" style="color: rgb(49, 176, 70);" >{{msjsuccess}}</p>
+                <div class="mb-3">
+                    <label class="form-label">TaG </label>
+                    <select  (change)="onSelectTag($event)"  required  class="form-select">
+                    <ng-container >
+                        <option value="">
+                        </option>
+                        <option value="Validated by the client">
+                            Validated by the client
+                        </option>
+                        <option value="Pending feedback/return">
+                            Pending feedback/return
+                        </option>
+                        <option value="Withdrawing candidacy">
+                            Withdrawing candidacy
+                        </option>
+                        <option value="Waiting for candidate's response">
+                            Waiting for candidate's response
+                        </option>
+                        <option value="Appointment declined">
+                            Appointment declined
+                        </option>
+                        <option value="Unable to position">
+                            Unable to position
+                        </option>
+                        <option value="Rejected by the client">
+                            Rejected by the client
+                        </option>
+                        <option value="Rejected by the candidate">
+                            Rejected by the candidate
+                        </option>
+                    </ng-container>
+                </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" (click)="updateTag()" class="btn btn-primary">change Tag </button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

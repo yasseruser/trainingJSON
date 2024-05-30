@@ -1,0 +1,194 @@
+.card-background {
+    background-image: radial-gradient(circle farthest-corner at 0.2% 0.5%, rgba(68, 36, 164, 1) 3.7%, rgba(84, 212, 228, 1) 92.7%);
+}
+.wrapper {
+display: flex;
+position: relative;
+justify-content: space-between; 
+font-family: 'Open Sans', sans-serif;
+flex-direction: column;
+margin-left: 50px;
+padding: 15px;
+}
+
+.wrapper .sidebar {
+height: 100%;
+background: radial-gradient(circle farthest-corner at 0.2% 0.5%, rgba(68, 36, 164, 1) 3.7%, rgba(84, 212, 228, 1) 92.7%);
+padding: 30px 10px;
+min-width: 70px;
+max-width: 16%;
+position: fixed;
+top: 0;
+left: 0;
+border-radius: 0px 50px 50px 0;
+}
+
+.wrapper .sidebar h2 {
+color: #fff;
+text-transform: uppercase;
+text-align: center;
+margin-bottom: 30px;
+font-size: 20px;
+}
+
+.wrapper .sidebar ul li {
+padding: 15px;
+padding-left: 0%;
+margin-left: -29px;
+border-radius: 20px;
+border-bottom: 1px solid #edecf3;
+border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.wrapper .sidebar ul li a {
+color: #f7f6fc;
+display: block;
+text-decoration: none;
+}
+
+.wrapper .sidebar ul li a .fas {
+width: 25px;
+}
+
+.wrapper .sidebar ul li:hover {
+    box-shadow: #d57420;
+}
+
+.wrapper .sidebar ul li:hover a {
+color: #0e0e0e;
+
+}
+@media (max-width: 950px) {
+    .wrapper {
+        width: 90%;
+        padding: 10px 30px 40px 40px 35px;
+        position: relative;
+        margin-left: 50px;
+    }
+    .wrapper .right-side {
+        width: 88%;
+        margin-left: 35px;
+    }
+}
+@media (max-width: 768px) {
+    .card {
+        width: calc(100% - 20px);
+        margin: 10 0 0 20px 0;
+    }
+    .validator-table {
+        width: 100%; /* Largeur du tableau à 100% */
+        table-layout: fixed; /* Fixer la taille du tableau */
+    }
+    .validator-table th,
+    .validator-table td {
+        font-size: 4px;
+        padding: 7px; 
+        white-space: normal;
+    }
+}
+
+.card {
+    min-height: 170px;
+    margin-right: 20px;
+    padding: 1.7rem 1.2rem;
+    border: none;
+    border-radius: 9px;
+    color: rgba(255, 255, 255, 1); 
+    letter-spacing: .05rem;
+    font-family: 'Oswald', sans-serif;
+    box-shadow: 0 0 21px rgba(0, 0, 0, .27);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1; 
+}
+
+.txt {
+
+    flex: 1; 
+    justify-content:baseline;
+    position: relative;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: .05rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top:0.4rem ;
+}
+
+.btn-more {
+    color: white;
+    background-color: transparent;
+    border: 2px solid white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    align-self:flex-end;
+    font-size: 10px; 
+    text-decoration: none;
+}
+
+.btn-more:hover {
+    background-color: white;
+    color: black;
+}
+.validator-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+.validator-table th,
+.validator-table td {
+    border: 1% solid white;
+    padding: 8%;
+    color: white;
+    white-space: nowrap; /* Empêche le contenu de sauter à la ligne */
+    overflow: hidden; /* Cache le contenu qui dépasse la limite */
+    text-overflow: ellipsis; 
+}
+.card.validator {
+    display: flex; /* Permettre la mise en page en ligne */
+    flex-direction: column; /* Empiler les éléments verticalement */
+    max-height: 170%; /* Définir une hauteur maximale */
+    overflow-y: auto; /* Activer le scroll vertical si nécessaire */
+    padding: 0.5rem 1rem; /* Ajuster le padding pour éviter le chevauchement */
+    min-height: 400px;
+}
+.card .font-bold {
+        font-size: 1.1rem; /* Ajuster la taille de la police au besoin */
+        margin-bottom: 0.5rem; /* Ajouter de l'espace en bas du titre */
+        margin-left: 0rem; /* Ajouter un peu de décalage sur la gauche */
+    }
+/* Style des colonnes du tableau */
+.validator-table th,
+.validator-table td {
+    border:  none;
+    padding: 0.6%;
+    color: white;
+    text-align: left;
+    font-size: small;
+    font-family: 'Oswald', sans-serif;
+}
+.text {
+    display: inline-block;
+    font-family: "Merriweather Sans", sans-serif;
+    text-transform: uppercase;
+    padding: 5% 2% 5%;
+    background-color:radial-gradient(circle farthest-corner at 0.2% 0.5%, rgba(68,36,164,1) 3.7%, rgba(84,212,228,1) 92.7%);
+    border: 1px solid #fff;
+    border-radius: 8%;
+    color: #fff;
+    margin-top: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    }
+.text:hover {
+    background-image:#fff;
+    border-color: unset;
+    } 
+    .active-link {
+        color: #0c137c!important;
+    }

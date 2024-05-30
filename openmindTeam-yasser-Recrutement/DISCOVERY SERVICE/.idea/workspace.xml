@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dbe50cc5-a33e-42c6-a53e-d8bc3d88cf14" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../COMPANY SERVICE/recruitement.application.companymanagment/src/main/java/open/mind/its/recruitement/application/companymanagment/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../COMPANY SERVICE/recruitement.application.companymanagment/src/main/java/open/mind/its/recruitement/application/companymanagment/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/applicationlist/applicationlist.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/applicationlist/applicationlist.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/applicationlist/applicationlist.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/applicationlist/applicationlist.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/applicationlist/applicationlist.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/applicationlist/applicationlist.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/applicationvalidatedbyvalidator/applicationvalidatedbyvalidator.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/applicationvalidatedbyvalidator/applicationvalidatedbyvalidator.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/applicationvalidatedbyvalidator/applicationvalidatedbyvalidator.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/applicationvalidatedbyvalidator/applicationvalidatedbyvalidator.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/candidatelist/candidatelist.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/candidatelist/candidatelist.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/candidatelist/candidatelist.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/candidatelist/candidatelist.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/humainrecourceshome/humainrecourceshome.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/humainrecourceshome/humainrecourceshome.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/humainrecourceshome/humainrecourceshome.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/humainrecourceshome/humainrecourceshome.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/modules/applay.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/modules/applay.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/newprofile/newprofile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/newprofile/newprofile.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/offerlist/offerlist.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/offerlist/offerlist.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/offerlist/offerlist.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/offerlist/offerlist.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/offerlist/offerlist.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/offerlist/offerlist.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/profilelist/profilelist.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/profilelist/profilelist.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/profilelist/profilelist.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/profilelist/profilelist.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/profilelist/profilelist.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/profilelist/profilelist.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/recruitorlist/recruitorlist.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/recruitorlist/recruitorlist.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/recruitorlist/recruitorlist.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/recruitorlist/recruitorlist.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/services/applicationmanagment.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/services/applicationmanagment.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/updateprofile/updateprofile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FRONT END OPENMIND/FrontEndAngular/src/app/updateprofile/updateprofile.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OFFRE SERVICE/recrutement.application.offermanagment/src/main/java/open/mind/its/recrutement/application/offermanagment/ENTITIES/RecruitmentProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OFFRE SERVICE/recrutement.application.offermanagment/src/main/java/open/mind/its/recrutement/application/offermanagment/ENTITIES/RecruitmentProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OFFRE SERVICE/recrutement.application.offermanagment/src/main/java/open/mind/its/recrutement/application/offermanagment/OPENFEIGNCLIENT/OfferClientProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OFFRE SERVICE/recrutement.application.offermanagment/src/main/java/open/mind/its/recrutement/application/offermanagment/OPENFEIGNCLIENT/OfferClientProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OFFRE SERVICE/recrutement.application.offermanagment/src/main/java/open/mind/its/recrutement/application/offermanagment/REPO/RecruitmentPrecessRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OFFRE SERVICE/recrutement.application.offermanagment/src/main/java/open/mind/its/recrutement/application/offermanagment/REPO/RecruitmentPrecessRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OFFRE SERVICE/recrutement.application.offermanagment/src/main/java/open/mind/its/recrutement/application/offermanagment/SERVICES/OfferService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OFFRE SERVICE/recrutement.application.offermanagment/src/main/java/open/mind/its/recrutement/application/offermanagment/SERVICES/OfferService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OFFRE SERVICE/recrutement.application.offermanagment/src/main/java/open/mind/its/recrutement/application/offermanagment/SERVICES/OfferServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OFFRE SERVICE/recrutement.application.offermanagment/src/main/java/open/mind/its/recrutement/application/offermanagment/SERVICES/OfferServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OFFRE SERVICE/recrutement.application.offermanagment/src/main/java/open/mind/its/recrutement/application/offermanagment/WEB/OfferApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OFFRE SERVICE/recrutement.application.offermanagment/src/main/java/open/mind/its/recrutement/application/offermanagment/WEB/OfferApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROFILE SERVICE/recruitment.application.profilemanagment/src/main/java/open/mind/its/recruitment/application/profilemanagment/ENTITIES/RecruitmentProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PROFILE SERVICE/recruitment.application.profilemanagment/src/main/java/open/mind/its/recruitment/application/profilemanagment/ENTITIES/RecruitmentProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROFILE SERVICE/recruitment.application.profilemanagment/src/main/java/open/mind/its/recruitment/application/profilemanagment/REPO/ProfileRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PROFILE SERVICE/recruitment.application.profilemanagment/src/main/java/open/mind/its/recruitment/application/profilemanagment/REPO/ProfileRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROFILE SERVICE/recruitment.application.profilemanagment/src/main/java/open/mind/its/recruitment/application/profilemanagment/SERVICE/ProfileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PROFILE SERVICE/recruitment.application.profilemanagment/src/main/java/open/mind/its/recruitment/application/profilemanagment/SERVICE/ProfileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROFILE SERVICE/recruitment.application.profilemanagment/src/main/java/open/mind/its/recruitment/application/profilemanagment/SERVICE/ProfileServiceImlp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PROFILE SERVICE/recruitment.application.profilemanagment/src/main/java/open/mind/its/recruitment/application/profilemanagment/SERVICE/ProfileServiceImlp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PROFILE SERVICE/recruitment.application.profilemanagment/src/main/java/open/mind/its/recruitment/application/profilemanagment/WEB/ProfileApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PROFILE SERVICE/recruitment.application.profilemanagment/src/main/java/open/mind/its/recruitment/application/profilemanagment/WEB/ProfileApi.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2crrXrShnTCdyq1xWUWONyAh0dc" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="open.mind.its.recrutement.application.discovery.Application" />
+      <module name="recrutement.application.discovery" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="open.mind.its.recrutement.application.discovery.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Application" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dbe50cc5-a33e-42c6-a53e-d8bc3d88cf14" name="Changes" comment="" />
+      <created>1708880581012</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708880581012</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

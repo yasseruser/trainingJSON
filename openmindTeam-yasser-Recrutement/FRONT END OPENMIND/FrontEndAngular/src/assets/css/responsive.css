@@ -1,0 +1,10 @@
+@media screen and (max-width: 768px) {
+    .paddingclass {
+        padding: 50px;
+    }
+    .heighclass{
+        height: 100%;
+    }
+
+
+}

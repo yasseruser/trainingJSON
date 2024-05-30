@@ -1,0 +1,154 @@
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'>
+<div class="container-fluid">
+    <a routerLink="/candidate/offers">go To offers</a>
+    <form [formGroup]="addProfileForm" (ngSubmit)="onSubmit()">
+        <div class="container">
+            <!-- Title -->
+            <div class="d-flex justify-content-between align-items-lg-center py-3 flex-column flex-lg-row">
+                <h2 class="h5 mb-3 mb-lg-0" style="color: #fff;"><a href="#" class="text-muted"><i
+                            class="bi bi-arrow-left-square me-2"></i></a> <span *ngIf="!linkProfileId">Create</span> <span *ngIf="linkProfileId">Update</span> New Profile</h2>
+            </div>
+
+            <!-- Main content -->
+            <div class="row">
+                <!-- Left side -->
+                <div class="col-lg-8">
+                    <!-- Basic information -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="h6 mb-4">Basic information</h3>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Profile Title</label>
+                                        <input formControlName="profileTitle" type="text" class="form-control" required>
+                                    </div>
+                                </div>
+                                <!-- Remuneration -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="h6 mb-4">Rémunération <p style="font-size: 10px;">(optionel)</p>
+                            </h3>
+                            <div id="remunerationFields">
+                                <div class="mb-3">
+                                    <label class="form-label">Salary</label>
+                                    <input (change)="onChangeRemuneration($event)"
+                                        formControlName="remuneration" type="range" class="form-range"
+                                        min="0" max="100000" step="1000" value="70000">
+                                    <output *ngIf="remuneration" for="salaryRange" id="salaryValue"> {{currency}}
+                                        {{remuneration}}</output>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="h6">Profile Type</h3>
+                            <select required class="form-select" formControlName="profileType">
+                                <option value="Full Time">Full Time</option>
+                                <option value="Hybride">Hybride</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right side -->
+                <div class="col-lg-4">
+                    <!--Skills-->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="h6 mb-4">Skills <p style="font-size: 8px;"> max skills 10</p>
+                            </h3>
+                            <div class="row" *ngFor="let control of formskills; let i = index">
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Skill Name</label>
+                                        <input formControlName="skillName{{i}}" type="text" class="form-control"
+                                            required>
+                                    </div>
+                                </div>
+                                <!-- Remuneration -->
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <h3 class="h6 mb-4"> Years Of Experience
+                                        </h3>
+                                        <div id="remunerationFields">
+                                            <div class="mb-3">
+                                                <label class="form-label">Years</label>
+                                                <input
+                                                    style="margin-left: 10px; background: radial-gradient(circle farthest-corner at 0.2% 0.5%, rgba(68,36,164,1) 3.7%, rgba(84,212,228,1) 92.7%);color: white; width: 50px; border-radius: 10px; padding: 5px;"
+                                                    formControlName="year{{i}}" type="number">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="buttonstylenew" (click)="onclickCancelskill(i)">
+                                        Cancel Skill
+                                    </button>
+                                </div>
+                            </div>
+                            <button class="buttonstylenew" type="button" (click)="onclickAddskill()">Add Skill</button>
+                        </div>
+                        <!-- Notes -->
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h3 class="h6">Notes <p style="font-size:10px ;">optional</p>
+                                </h3>
+                                <textarea class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-lg-center py-3 flex-column flex-lg-row">
+                <div class="hstack gap-3" style="margin-left: 70%;">
+                    <button (click)="rest()" class="btn-sm "> <span class="text">Cancel</span></button>
+                    <button [disabled]="isButtonDisabled" [ngClass]="isButtonDisabled?'btn':'btn-sm'"
+                        style="border: none;"> <span class="text" *ngIf="!linkProfileId">  Save </span>
+                        <span *ngIf="linkProfileId" class="text">  Update </span>
+                    </button>
+                </div>
+                <a routerLink="/candidate/offers">go To offers</a>
+            </div>
+            <div id="buttons" *ngIf="showfilButtons" class="flex-lg-row">
+                <button type="button" style="margin: 10px;" class="buttonstylenew" (click)="displayAudioForm()"> <span *ngIf="!linkProfileId" >Add</span>  <span *ngIf="linkProfileId">Update</span>
+                    Media</button>
+                <button type="button" style="margin: 10px;" class="buttonstylenew" (click)="displayCvForm()">  <span *ngIf="!linkProfileId" >Add</span>  <span *ngIf="linkProfileId">Update</span>
+                    CV</button>
+
+            </div>
+
+        </div>
+    </form>
+    <!--CV Form -->
+    <form style="margin:50px ;margin-bottom: 0px;" *ngIf="savecv" [formGroup]="addCvForm" (ngSubmit)="onSubmitCv()">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="h6"> Cv <p style="font-size: 8px;color:  red;"> Name has to Be Unique And Format Should Be <strong>PDF</strong> </p>
+                    <hr>
+                    <p style="font-size: 10px;color: red;" *ngIf="showerro"> {{showerro}} </p>
+                </h3>
+                <input [ngClass]="showerro?'bordererror':''" (change)="onFileSelected($event)" class="form-control"
+                    type="file" formControlName="cv">
+            </div>
+            <button style="margin: 10px;" class="buttonstylenew" (click)="onSubmitCv()"> <Strong *ngIf="!linkProfileId">Save</Strong>  <strong *ngIf="linkProfileId">Update</strong> CV</button>
+        </div>
+    </form>
+
+    <!--Audio Form -->
+    <form style="margin:50px ;margin-bottom: 0px;" *ngIf="saveaudio" [formGroup]="addAudioForm"
+        (ngSubmit)="onSubmitAudio()">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="h6">  Media <p style="font-size: 8px;color:  red;"> Nama has to Be Unique And Format Should Be <strong> MP3 Or MP4 </strong> </p>
+                    <hr>
+                    <p style="font-size: 10px;color: red;" *ngIf="showerro"> {{showerro}} </p>
+                </h3>
+                <input [ngClass]="showerro?'bordererror':''" (change)="onFileSelectedAudio($event)" class="form-control"
+                    type="file" formControlName="audio">
+            </div>
+            <button style="margin: 10px;" class="buttonstylenew" (click)="onSubmitAudio()"> <Strong *ngIf="!linkProfileId">Save</Strong> <strong *ngIf="linkProfileId">Update</strong> Media</button>
+        </div>
+    </form>
+</div>

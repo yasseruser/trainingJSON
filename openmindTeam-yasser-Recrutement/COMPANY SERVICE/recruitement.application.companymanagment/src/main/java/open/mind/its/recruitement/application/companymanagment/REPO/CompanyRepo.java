@@ -1,0 +1,21 @@
+package open.mind.its.recruitement.application.companymanagment.REPO;
+
+import feign.Param;
+import open.mind.its.recruitement.application.companymanagment.ENTITIES.Company;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface CompanyRepo extends JpaRepository<Company,String> {
+    @Query("select c from Company c where c.name like :kw")
+    List<Company> filterCompanyByName(@Param("kw") String kw);
+    @Query("select c from Company c where c.name like %:kw%")
+    Page<Company> filterCompanyByName(@Param("kw") String kw, Pageable pageable);
+
+    Page<Company> findByOrderByCreatedAt(Pageable pageable);
+}

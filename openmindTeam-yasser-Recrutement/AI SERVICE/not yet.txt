@@ -1,0 +1,24 @@
+ build a system that can analyze candidate 
+profiles and job offers, then calculate a
+ percentage match between them based on
+ various factors such as skills, experience,
+ and preferences outlined in the documents.
+
+Data Preprocessing:
+
+Extract text from the PDF documents containing candidate profiles and job offers. We can use libraries like PyPDF2 or pdfminer in Python for this task.
+Preprocess the text data by removing stopwords, punctuation, and performing stemming or lemmatization to standardize the text.
+
+Feature Extraction:
+
+Identify key features from the candidate profiles and job offers such as skills, experience, education, location, etc.
+Using techniques like TF-IDF (Term Frequency-Inverse Document Frequency) or word embeddings (like Word2Vec or GloVe) to represent the text data numerically.
+
+Matching Algorithm:
+One of the most useful and powerful matching algorithms for this task is the cosine similarity.
+
+Scoring:
+
+After computing the similarity between the candidate profile and the job offer, assign a score or percentage that represents the degree of match.
+We might want to weigh different features differently based on their importance in the job offer.
+
