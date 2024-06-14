@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: authenticationmanagment
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5432:5432"
+    networks:
+      - keycloak-network
+
+  keycloak:
+    build:
+      context: .
+    ports:
+      - "8087:8087"
+    environment:
+      KEYCLOAK_USER: openmind
+      KEYCLOAK_PASSWORD: openmind
+      DB_VENDOR: POSTGRES
+      DB_ADDR: postgres
+      DB_DATABASE: authenticationmanagment
+      DB_USER: postgres
+      DB_PASSWORD: admin
+    depends_on:
+      - postgres
+    networks:
+      - keycloak-network
+
+networks:
+  keycloak-network:
+    driver: bridge

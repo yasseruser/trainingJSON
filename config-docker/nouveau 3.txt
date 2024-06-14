@@ -1,0 +1,47 @@
+	1-Création d'un conteneur PostgreSQL :
+
+J'ai créé un conteneur PostgreSQL en utilisant l'image postgres:latest.
+		
+		Commande utilisée :
+
+docker run -d --name postgres -e POSTGRES_DB=authenticationmanagment -e
+POSTGRES_USER=postgres -e POSTGRES_PASSWORD=admin -p 5432:5432 postgres:latest
+
+    2-Création d'une image Keycloak personnalisée :
+
+J'ai créé une image Keycloak personnalisée en utilisant un Dockerfile qui construit
+une image à partir de l'image officielle de Keycloak.
+J'ai également ajouté un fichier JAR de fournisseur personnalisé.
+
+		Commandes utilisées :
+
+docker build -t mykeycloak .
+
+    3-Création et démarrage d'un conteneur Keycloak :
+
+J'ai démarré un conteneur Keycloak en utilisant votre image personnalisée.
+J'ai lié ce conteneur au conteneur PostgreSQL en utilisant le réseau personnalisé.
+
+		Commande utilisée :
+
+docker run -d --name keycloak1 --network mynetwork -p 8087:8087 -e 
+KEYCLOAK_ADMIN=openmind -e KEYCLOAK_ADMIN_PASSWORD=openmind -e 
+KC_DB_URL=jdbc:postgresql://postgres:5432/authenticationmanagment mykeycloak
+
+     4-Arrêt et redémarrage des conteneurs :
+
+Pour arrêter un conteneur,  docker stop <container_name>.
+Pour démarrer un conteneur précédemment arrêté,  docker start <container_name>.
+
+Vérification des conteneurs en cours d'exécution :
+
+J'ai utilisé la commande docker ps pour afficher tous les conteneurs en cours d'exécution.
+  
+    5-Nettoyage :
+
+Pour supprimer un conteneur,  docker rm <container_name>
+Pour supprimer une image,  	  docker rmi <image_name>
+
+
+En suivant ces étapes, j'ai réussi à créer et à exécuter des conteneurs Docker pour Keycloak
+et PostgreSQL, en les reliant ensemble pour permettre à Keycloak d'utiliser PostgreSQL comme base de données.
